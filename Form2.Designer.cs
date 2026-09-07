@@ -120,8 +120,11 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.acceptButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Game";
             this.ResumeLayout(false);
             this.PerformLayout();

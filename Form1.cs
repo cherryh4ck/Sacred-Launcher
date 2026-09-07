@@ -49,6 +49,11 @@ namespace Sacred_Launcher
             if (gamesList.SelectedItem is Game game)
             {
                 gameDescription.Text = game.Description;
+                Icon extractedIcon = Icon.ExtractAssociatedIcon(game.Path);
+                if (extractedIcon != null)
+                {
+                    gameIcon.Image = extractedIcon.ToBitmap();
+                }
             }
         }
     }
