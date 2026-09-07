@@ -33,8 +33,8 @@
             this.addButton = new System.Windows.Forms.Button();
             this.gameDescription = new System.Windows.Forms.TextBox();
             this.gameIcon = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.playButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.gameName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gameIcon)).BeginInit();
@@ -79,23 +79,27 @@
             this.gameIcon.TabStop = false;
             this.gameIcon.Visible = false;
             // 
-            // button1
+            // playButton
             // 
-            this.button1.Location = new System.Drawing.Point(424, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = true;
+            this.playButton.Enabled = false;
+            this.playButton.Location = new System.Drawing.Point(424, 191);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(75, 23);
+            this.playButton.TabIndex = 5;
+            this.playButton.Text = "Play";
+            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // deleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(500, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(20, 20);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Location = new System.Drawing.Point(500, 34);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(20, 20);
+            this.deleteButton.TabIndex = 6;
+            this.deleteButton.Text = "-";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // button3
             // 
@@ -123,8 +127,8 @@
             this.ClientSize = new System.Drawing.Size(532, 228);
             this.Controls.Add(this.gameName);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.playButton);
             this.Controls.Add(this.gameIcon);
             this.Controls.Add(this.gameDescription);
             this.Controls.Add(this.addButton);
@@ -148,8 +152,8 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox gameDescription;
         private System.Windows.Forms.PictureBox gameIcon;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label gameName;
     }

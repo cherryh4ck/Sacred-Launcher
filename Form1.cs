@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,10 +51,52 @@ namespace Sacred_Launcher
             if (gamesList.SelectedItem is Game game)
             {
                 gameDescription.Text = game.Description;
+                gameName.Text = game.Name;
                 Icon extractedIcon = Icon.ExtractAssociatedIcon(game.Path);
                 if (extractedIcon != null)
                 {
                     gameIcon.Image = extractedIcon.ToBitmap();
+                }
+
+                gameIcon.Visible = true;
+                gameName.Visible = true;
+                gameDescription.Visible = true;
+                playButton.Enabled = true;
+                deleteButton.Enabled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (gamesList.SelectedItem is Game game)
+            {
+                var info = new ProcessStartInfo
+                {
+                    FileName = game.Path,
+                    WorkingDirectory = Path.GetDirectoryName(game.Path),
+                    UseShellExecute = true
+                };
+
+                Process.Start(info);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (gamesList.SelectedItem is Game game)
+            {
+                var result = MessageBox.Show($"Are you sure you want to delete {game.Name}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    gamesList.Items.Remove(game);
+                    gameDescription.Text = "";
+                    gameName.Text = "";
+                    gameIcon.Image = null;
+                    gameIcon.Visible = false;
+                    gameName.Visible = false;
+                    gameDescription.Visible = false;
+                    playButton.Enabled = false;
+                    deleteButton.Enabled = false;
                 }
             }
         }
