@@ -103,11 +103,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(343, 191);
+            this.button3.Location = new System.Drawing.Point(316, 191);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(102, 23);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Server list";
+            this.button3.Text = "Server Browser";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // gameName

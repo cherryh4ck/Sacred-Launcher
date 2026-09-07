@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Sacred_Launcher
 {
     public partial class Form1 : Form
     {
+        static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
         public Form1()
         {
             InitializeComponent();
@@ -31,13 +33,58 @@ namespace Sacred_Launcher
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: load from json file
-            // also show a message if json doesn't exist
+            loadData();
         }
 
+        public void saveData()
+        {
+            var games = new List<Game>();
+            foreach (var item in gamesList.Items)
+            {
+                if (item is Game game)
+                {
+                    games.Add(game);
+                }
+            }
+            try
+            {
+                var json = JsonConvert.SerializeObject(games, Formatting.Indented);
+                File.WriteAllText(dataFile, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"there was an error when trying to save your data!! error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void loadData()
+        {
+            if (!File.Exists(dataFile))
+            {
+                return;
+            }
+
+            var games = new List<Game>();
+            try
+            {
+                var json = File.ReadAllText(dataFile);
+                games = JsonConvert.DeserializeObject<List<Game>>(json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"there was an error when trying to load your data!! error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            foreach (var game in games)
+            {
+                gamesList.Items.Add(game);
+            }
+        }
         public void addGame(Game game)
         {
             gamesList.Items.Add(game);
+            saveData();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -97,6 +144,8 @@ namespace Sacred_Launcher
                     gameDescription.Visible = false;
                     playButton.Enabled = false;
                     deleteButton.Enabled = false;
+
+                    saveData();
                 }
             }
         }
