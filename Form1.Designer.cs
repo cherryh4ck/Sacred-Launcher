@@ -112,12 +112,13 @@
             // 
             // gameName
             // 
-            this.gameName.AutoSize = true;
-            this.gameName.Location = new System.Drawing.Point(35, 32);
+            this.gameName.AutoEllipsis = true;
+            this.gameName.Location = new System.Drawing.Point(35, 12);
             this.gameName.Name = "gameName";
-            this.gameName.Size = new System.Drawing.Size(35, 13);
+            this.gameName.Size = new System.Drawing.Size(77, 33);
             this.gameName.TabIndex = 8;
             this.gameName.Text = "label1";
+            this.gameName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gameName.Visible = false;
             // 
             // Form1
