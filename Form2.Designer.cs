@@ -47,6 +47,7 @@
             this.acceptButton.TabIndex = 0;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // label1
             // 
@@ -88,6 +89,7 @@
             this.pathButton.TabIndex = 5;
             this.pathButton.Text = "Select";
             this.pathButton.UseVisualStyleBackColor = true;
+            this.pathButton.Click += new System.EventHandler(this.pathButton_Click);
             // 
             // label3
             // 

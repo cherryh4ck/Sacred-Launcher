@@ -33,21 +33,15 @@ namespace Sacred_Launcher
             // also show a message if json doesn't exist
         }
 
+        public void addGame(Game game)
+        {
+            gamesList.Items.Add(game);
+        }
+
         private void addButton_Click(object sender, EventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            dialog.Filter = "Executables (*.exe)|*.exe";
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                var game = new Game
-                {
-                    Name = System.IO.Path.GetFileNameWithoutExtension(dialog.FileName),
-                    Path = dialog.FileName,
-                    Description = "aaa"
-                };
-                gamesList.Items.Add(game);
-            }
+            Form2 form = new Form2(this);
+            form.ShowDialog();
         }
 
         private void gamesList_SelectedIndexChanged(object sender, EventArgs e)
