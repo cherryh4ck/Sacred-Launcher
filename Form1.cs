@@ -99,6 +99,7 @@ namespace Sacred_Launcher
             {
                 gameDescription.Text = game.Description;
                 gameName.Text = game.Name;
+                gamePath.Text = game.Path;
                 Icon extractedIcon = Icon.ExtractAssociatedIcon(game.Path);
                 if (extractedIcon != null)
                 {
@@ -107,6 +108,7 @@ namespace Sacred_Launcher
 
                 gameIcon.Visible = true;
                 gameName.Visible = true;
+                gamePath.Visible = true;
                 gameDescription.Visible = true;
                 playButton.Enabled = true;
                 deleteButton.Enabled = true;

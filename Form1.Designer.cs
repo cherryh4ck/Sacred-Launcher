@@ -37,6 +37,7 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.gameName = new System.Windows.Forms.Label();
+            this.gamePath = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gameIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,15 +120,27 @@
             this.gameName.Name = "gameName";
             this.gameName.Size = new System.Drawing.Size(77, 33);
             this.gameName.TabIndex = 8;
-            this.gameName.Text = "label1";
+            this.gameName.Text = "game name";
             this.gameName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gameName.Visible = false;
+            // 
+            // gamePath
+            // 
+            this.gamePath.AutoEllipsis = true;
+            this.gamePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gamePath.Location = new System.Drawing.Point(12, 191);
+            this.gamePath.Name = "gamePath";
+            this.gamePath.Size = new System.Drawing.Size(284, 31);
+            this.gamePath.TabIndex = 9;
+            this.gamePath.Text = "path";
+            this.gamePath.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 228);
+            this.Controls.Add(this.gamePath);
             this.Controls.Add(this.gameName);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.deleteButton);
@@ -159,6 +172,7 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label gameName;
+        private System.Windows.Forms.Label gamePath;
     }
 }
 
