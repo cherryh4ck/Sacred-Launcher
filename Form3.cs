@@ -20,6 +20,7 @@ namespace Sacred_Launcher
         public class Server
         {
             public string IP { get; set; }
+            public bool Status { get; set; }
             public override string ToString() => IP;
         }
         public Form3()
@@ -29,29 +30,44 @@ namespace Sacred_Launcher
 
         async public void ScanIPs()
         {
-            foreach (var item in serverList.Items)
+            foreach (ListViewItem item in serverList.Items)
             {
-                if (item is Server server)
+                var server = (Server)item.Tag;
+                bool online = false;
+
+                using (var client = new TcpClient())
                 {
-                    var client = new TcpClient();
                     try
                     {
                         var tarea = client.ConnectAsync(server.IP, 7066);
-                        if (await Task.WhenAny(tarea, Task.Delay(2000)) == tarea && client.Connected)
-                        {
-                            MessageBox.Show("Server " + server.IP + " is online!", "Server Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        online = await Task.WhenAny(tarea, Task.Delay(2000)) == tarea && client.Connected;
                     }
                     catch { }
                 }
+
+                server.Status = online;
+                item.SubItems[1].Text = online ? "Online" : "Offline";
             }
         }
 
+        public void addServer(Server server)
+        {
+            var item = new ListViewItem(server.IP);
+            item.SubItems.Add(server.Status ? "Online" : "Offline");
+            item.Tag = server;
+            serverList.Items.Add(item);
+        } 
+
         private void Form3_Load(object sender, EventArgs e)
         {
-            serverList.Items.Add(new Server { IP = "sacred.toms3.cc" });
-            serverList.Items.Add(new Server { IP = "sacred.overture.bar" });
-            serverList.Items.Add(new Server { IP = "asfsaffsaf.cc" });
+            serverList.View = View.Details;
+            serverList.Columns.Add("IP", 120);
+            serverList.Columns.Add("Status", 80);
+            serverList.FullRowSelect = true;
+
+            addServer(new Server { IP = "sacred.toms3.cc" });
+            addServer(new Server { IP = "sacred.overture.bar" });
+            addServer(new Server { IP = "asfsaffsaf.cc" });
             Console.WriteLine("scanning");
             ScanIPs();
         }

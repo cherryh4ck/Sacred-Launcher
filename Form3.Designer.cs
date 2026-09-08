@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.serverList = new System.Windows.Forms.ListBox();
+            this.serverList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // serverList
             // 
-            this.serverList.FormattingEnabled = true;
+            this.serverList.HideSelection = false;
             this.serverList.Location = new System.Drawing.Point(12, 12);
             this.serverList.Name = "serverList";
-            this.serverList.Size = new System.Drawing.Size(321, 160);
-            this.serverList.TabIndex = 0;
+            this.serverList.Size = new System.Drawing.Size(403, 174);
+            this.serverList.TabIndex = 1;
+            this.serverList.UseCompatibleStateImageBehavior = false;
             // 
             // Form3
             // 
@@ -58,7 +59,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox serverList;
+        private System.Windows.Forms.ListView serverList;
     }
 }
