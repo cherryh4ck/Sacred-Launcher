@@ -63,6 +63,7 @@
             // 
             // gameDescription
             // 
+            this.gameDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameDescription.Location = new System.Drawing.Point(12, 48);
             this.gameDescription.Multiline = true;
             this.gameDescription.Name = "gameDescription";

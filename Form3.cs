@@ -20,6 +20,7 @@ namespace Sacred_Launcher
         public class Server
         {
             public string IP { get; set; }
+            public int Port { get; set; } = 7066;
             public bool Status { get; set; }
             public override string ToString() => IP;
         }
@@ -39,20 +40,21 @@ namespace Sacred_Launcher
                 {
                     try
                     {
-                        var tarea = client.ConnectAsync(server.IP, 7066);
+                        var tarea = client.ConnectAsync(server.IP, server.Port);
                         online = await Task.WhenAny(tarea, Task.Delay(2000)) == tarea && client.Connected;
                     }
                     catch { }
                 }
 
                 server.Status = online;
-                item.SubItems[1].Text = online ? "Online" : "Offline";
+                item.SubItems[2].Text = online ? "Online" : "Offline";
             }
         }
 
         public void addServer(Server server)
         {
             var item = new ListViewItem(server.IP);
+            item.SubItems.Add(server.Port.ToString());
             item.SubItems.Add(server.Status ? "Online" : "Offline");
             item.Tag = server;
             serverList.Items.Add(item);
@@ -62,6 +64,7 @@ namespace Sacred_Launcher
         {
             serverList.View = View.Details;
             serverList.Columns.Add("IP", 120);
+            serverList.Columns.Add("Port", 40);
             serverList.Columns.Add("Status", 80);
             serverList.FullRowSelect = true;
 
