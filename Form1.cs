@@ -155,5 +155,20 @@ namespace Sacred_Launcher
             Form3 form = new Form3();
             form.ShowDialog();
         }
+
+        private void gamesList_DoubleClick(object sender, EventArgs e)
+        {
+            if (gamesList.SelectedItem is Game game)
+            {
+                var info = new ProcessStartInfo
+                {
+                    FileName = game.Path,
+                    WorkingDirectory = Path.GetDirectoryName(game.Path),
+                    UseShellExecute = true
+                };
+
+                Process.Start(info);
+            }
+        }
     }
 }
