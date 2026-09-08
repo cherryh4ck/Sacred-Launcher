@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Sacred-Launcher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Sacred Launcher")]
+[assembly: AssemblyDescription("Unofficial Launcher for Sacred (2004).")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Atlas Playbook v0.5.0")]
-[assembly: AssemblyProduct("Sacred-Launcher")]
-[assembly: AssemblyCopyright("Copyright © Atlas Playbook v0.5.0 2026")]
+[assembly: AssemblyCompany("Cherryh4ck")]
+[assembly: AssemblyProduct("Sacred Launcher")]
+[assembly: AssemblyCopyright("Copyright © Cherryh4ck")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Número de compilación
 //      Revisión
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.9.0")]
+[assembly: AssemblyFileVersion("0.9.0")]
