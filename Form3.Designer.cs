@@ -40,6 +40,7 @@
             this.serverList.Size = new System.Drawing.Size(403, 174);
             this.serverList.TabIndex = 1;
             this.serverList.UseCompatibleStateImageBehavior = false;
+            this.serverList.MouseUp += new System.Windows.Forms.MouseEventHandler(this.serverList_MouseUp);
             // 
             // Form3
             // 
