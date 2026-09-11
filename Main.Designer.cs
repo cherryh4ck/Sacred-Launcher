@@ -74,7 +74,7 @@
             // 
             // gameIcon
             // 
-            this.gameIcon.Image = ((System.Drawing.Image)(resources.GetObject("gameIcon.Image")));
+            this.gameIcon.Image = global::Sacred_Launcher.Properties.Resources.unknown;
             this.gameIcon.InitialImage = ((System.Drawing.Image)(resources.GetObject("gameIcon.InitialImage")));
             this.gameIcon.Location = new System.Drawing.Point(12, 24);
             this.gameIcon.Name = "gameIcon";

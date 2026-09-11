@@ -150,12 +150,9 @@ namespace Sacred_Launcher
                 {
                     gamesList.Items.Remove(game);
                     gameDescription.Text = "";
-                    gameName.Text = "";
-                    gameIcon.Image = null;
+                    gameName.Text = "No game selected";
+                    gameIcon.Image = Properties.Resources.unknown;
                     gamePath.Visible = false;
-                    gameIcon.Visible = false;
-                    gameName.Visible = false;
-                    gameDescription.Visible = false;
                     playButton.Enabled = false;
                     deleteButton.Enabled = false;
 
