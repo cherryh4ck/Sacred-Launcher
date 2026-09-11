@@ -106,10 +106,7 @@ namespace Sacred_Launcher
                     gameIcon.Image = extractedIcon.ToBitmap();
                 }
 
-                gameIcon.Visible = true;
-                gameName.Visible = true;
                 gamePath.Visible = true;
-                gameDescription.Visible = true;
                 playButton.Enabled = true;
                 deleteButton.Enabled = true;
             }

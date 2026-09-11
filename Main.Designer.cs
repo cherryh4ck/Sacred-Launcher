@@ -63,6 +63,7 @@
             // 
             // gameDescription
             // 
+            this.gameDescription.Enabled = false;
             this.gameDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameDescription.Location = new System.Drawing.Point(12, 48);
             this.gameDescription.Multiline = true;
@@ -70,17 +71,17 @@
             this.gameDescription.ReadOnly = true;
             this.gameDescription.Size = new System.Drawing.Size(100, 137);
             this.gameDescription.TabIndex = 3;
-            this.gameDescription.Visible = false;
             // 
             // gameIcon
             // 
+            this.gameIcon.Image = ((System.Drawing.Image)(resources.GetObject("gameIcon.Image")));
+            this.gameIcon.InitialImage = ((System.Drawing.Image)(resources.GetObject("gameIcon.InitialImage")));
             this.gameIcon.Location = new System.Drawing.Point(12, 24);
             this.gameIcon.Name = "gameIcon";
             this.gameIcon.Size = new System.Drawing.Size(20, 20);
             this.gameIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gameIcon.TabIndex = 4;
             this.gameIcon.TabStop = false;
-            this.gameIcon.Visible = false;
             // 
             // playButton
             // 
@@ -121,9 +122,8 @@
             this.gameName.Name = "gameName";
             this.gameName.Size = new System.Drawing.Size(77, 33);
             this.gameName.TabIndex = 8;
-            this.gameName.Text = "game name";
+            this.gameName.Text = "No game selected";
             this.gameName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.gameName.Visible = false;
             // 
             // gamePath
             // 
@@ -136,7 +136,7 @@
             this.gamePath.Text = "path";
             this.gamePath.Visible = false;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +153,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sacred Launcher";
             this.Load += new System.EventHandler(this.Form1_Load);
