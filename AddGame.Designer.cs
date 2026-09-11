@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGame));
             this.acceptButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,10 +38,13 @@
             this.pathButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.description = new System.Windows.Forms.TextBox();
+            this.status = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // acceptButton
             // 
+            this.acceptButton.Enabled = false;
             this.acceptButton.Location = new System.Drawing.Point(170, 171);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(90, 23);
@@ -82,6 +86,7 @@
             this.path.Name = "path";
             this.path.Size = new System.Drawing.Size(326, 20);
             this.path.TabIndex = 4;
+            this.path.TextChanged += new System.EventHandler(this.path_TextChanged);
             // 
             // pathButton
             // 
@@ -109,11 +114,27 @@
             this.description.Size = new System.Drawing.Size(404, 20);
             this.description.TabIndex = 7;
             // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Location = new System.Drawing.Point(12, 155);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(35, 13);
+            this.status.TabIndex = 8;
+            this.status.Text = "label4";
+            this.status.Visible = false;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 800;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // AddGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 206);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.description);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pathButton);
@@ -143,5 +164,7 @@
         private System.Windows.Forms.Button pathButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox description;
+        private System.Windows.Forms.Label status;
+        private System.Windows.Forms.Timer timer;
     }
 }
