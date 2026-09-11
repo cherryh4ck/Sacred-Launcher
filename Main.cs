@@ -14,10 +14,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Sacred_Launcher
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -89,7 +89,7 @@ namespace Sacred_Launcher
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2(this);
+            AddGame form = new AddGame(this);
             form.ShowDialog();
         }
 
@@ -154,7 +154,7 @@ namespace Sacred_Launcher
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form3 form = new Form3();
+            ServerBrowser form = new ServerBrowser();
             form.ShowDialog();
         }
 

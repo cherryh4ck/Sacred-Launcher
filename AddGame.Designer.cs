@@ -1,6 +1,6 @@
 ﻿namespace Sacred_Launcher
 {
-    partial class Form2
+    partial class AddGame
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGame));
             this.acceptButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();

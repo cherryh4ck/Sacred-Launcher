@@ -9,14 +9,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Sacred_Launcher.Form3;
+using static Sacred_Launcher.ServerBrowser;
 
 namespace Sacred_Launcher
 {
-    public partial class Form4 : Form
+    public partial class AddServer : Form
     {
-        private readonly Form3 form;
-        public Form4(Form3 form)
+        private readonly ServerBrowser form;
+        public AddServer(ServerBrowser form)
         {
             InitializeComponent();
             this.form = form;

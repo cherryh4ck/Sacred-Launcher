@@ -11,11 +11,11 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Sacred_Launcher.Form1;
+using static Sacred_Launcher.Main;
 
 namespace Sacred_Launcher
 {
-    public partial class Form3 : Form
+    public partial class ServerBrowser : Form
     {
         // solo eso por ahora ejkfkjwsfkjsd
         // ynoseqe mas podria ir qwp
@@ -30,7 +30,7 @@ namespace Sacred_Launcher
             public bool Status { get; set; }
             public override string ToString() => IP;
         }
-        public Form3()
+        public ServerBrowser()
         {
             InitializeComponent();
         }
@@ -164,7 +164,7 @@ namespace Sacred_Launcher
 
         private void AddServer_Click(object sender, EventArgs e)
         {
-            Form4 form = new Form4(this);
+            AddServer form = new AddServer(this);
             form.ShowDialog();
         }
 

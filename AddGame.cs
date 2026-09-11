@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Sacred_Launcher.Form1;
+using static Sacred_Launcher.Main;
 
 namespace Sacred_Launcher
 {
-    public partial class Form2 : Form
+    public partial class AddGame : Form
     {
-        private readonly Form1 form;
-        public Form2(Form1 form)
+        private readonly Main form;
+        public AddGame(Main form)
         {
             InitializeComponent();
             this.form = form;
