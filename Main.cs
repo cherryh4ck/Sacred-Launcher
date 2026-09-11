@@ -100,7 +100,20 @@ namespace Sacred_Launcher
                 gameDescription.Text = game.Description;
                 gameName.Text = game.Name;
                 gamePath.Text = game.Path;
-                Icon extractedIcon = Icon.ExtractAssociatedIcon(game.Path);
+                Icon extractedIcon;
+                try
+                {
+                    extractedIcon = Icon.ExtractAssociatedIcon(game.Path);
+                }
+                catch (Exception)
+                {
+                    gameName.Text = "Invalid game";
+                    gameDescription.Text = "Game couldn't be found.";
+                    gamePath.Visible = false;
+                    MessageBox.Show($"Game couldn't be found. Please check if the path is correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (extractedIcon != null)
                 {
                     gameIcon.Image = extractedIcon.ToBitmap();
