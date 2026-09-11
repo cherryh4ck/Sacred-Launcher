@@ -14,10 +14,21 @@ namespace Sacred_Launcher
     public partial class AddGame : Form
     {
         private readonly Main form;
-        public AddGame(Main form)
+        private readonly string mode;
+        private readonly Game game;
+        public AddGame(Main form, string mode, Game game)
         {
             InitializeComponent();
             this.form = form;
+            this.mode = mode;
+            this.game = game;
+
+            if (game != null)
+            {
+                name.Text = game.Name;
+                description.Text = game.Description;
+                path.Text = game.Path;
+            }
         }
 
         private bool CheckIfValid()
@@ -48,13 +59,23 @@ namespace Sacred_Launcher
                 descriptionText = "No description available.";
             }
 
-            var game = new Game
+            if (game != null)
             {
-                Name = name.Text,
-                Path = path.Text,
-                Description = descriptionText
-            };
-            form.addGame(game);
+                game.Name = name.Text;
+                game.Path = path.Text;
+                game.Description = descriptionText;
+                form.updateGame(game);
+            }
+            else
+            {
+                var newGame = new Game
+                {
+                    Name = name.Text,
+                    Path = path.Text,
+                    Description = descriptionText
+                };
+                form.addGame(newGame);
+            }
 
             this.Close();
         }
@@ -106,6 +127,18 @@ namespace Sacred_Launcher
                 status.Text = "Not a valid game.";
             }
             status.Visible = true;
+        }
+
+        private void AddGame_Load(object sender, EventArgs e)
+        {
+            if (mode == "ADD")
+            {
+                this.Text = "Add Game";
+            }
+            else if (mode == "MODIFY")
+            {
+                this.Text = "Modify Game";
+            }
         }
     }
 }

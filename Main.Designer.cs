@@ -146,6 +146,7 @@
             this.modifyButton.TabIndex = 10;
             this.modifyButton.Text = "?";
             this.modifyButton.UseVisualStyleBackColor = true;
+            this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
             // Main
             // 

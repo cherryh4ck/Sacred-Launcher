@@ -87,9 +87,19 @@ namespace Sacred_Launcher
             saveData();
         }
 
+        public void updateGame(Game game)
+        {
+            var index = gamesList.Items.IndexOf(game);
+            if (index >= 0)
+            {
+                gamesList.Items[index] = game;
+            }
+            saveData();
+        }
+
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddGame form = new AddGame(this);
+            AddGame form = new AddGame(this, "ADD", null);
             form.ShowDialog();
         }
 
@@ -182,6 +192,15 @@ namespace Sacred_Launcher
                 };
 
                 Process.Start(info);
+            }
+        }
+
+        private void modifyButton_Click(object sender, EventArgs e)
+        {
+            if (gamesList.SelectedItem is Game game)
+            {
+                AddGame form = new AddGame(this, "MODIFY", game);
+                form.ShowDialog();
             }
         }
     }

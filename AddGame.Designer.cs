@@ -149,6 +149,7 @@
             this.Name = "AddGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Game";
+            this.Load += new System.EventHandler(this.AddGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
