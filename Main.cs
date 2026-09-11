@@ -138,6 +138,7 @@ namespace Sacred_Launcher
                     gameDescription.Text = "";
                     gameName.Text = "";
                     gameIcon.Image = null;
+                    gamePath.Visible = false;
                     gameIcon.Visible = false;
                     gameName.Visible = false;
                     gameDescription.Visible = false;
