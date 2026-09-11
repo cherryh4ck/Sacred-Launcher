@@ -149,7 +149,11 @@ namespace Sacred_Launcher
                     UseShellExecute = true
                 };
 
-                Process.Start(info);
+                try
+                {
+                    Process.Start(info);
+                }
+                catch { }
             }
         }
 
@@ -191,7 +195,11 @@ namespace Sacred_Launcher
                     UseShellExecute = true
                 };
 
-                Process.Start(info);
+                try
+                {
+                    Process.Start(info);
+                }
+                catch { }
             }
         }
 
