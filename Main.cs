@@ -110,6 +110,7 @@ namespace Sacred_Launcher
                     gameName.Text = "Invalid game";
                     gameDescription.Text = "Game couldn't be found.";
                     gamePath.Visible = false;
+                    deleteButton.Enabled = true;
                     MessageBox.Show($"Game couldn't be found. Please check if the path is correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
