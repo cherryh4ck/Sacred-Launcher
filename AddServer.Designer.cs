@@ -69,6 +69,7 @@
             this.port.Size = new System.Drawing.Size(168, 20);
             this.port.TabIndex = 3;
             this.port.Text = "7066";
+            this.port.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.port_KeyPress);
             // 
             // addButton
             // 
