@@ -64,6 +64,7 @@
             // port
             // 
             this.port.Location = new System.Drawing.Point(12, 62);
+            this.port.MaxLength = 5;
             this.port.Name = "port";
             this.port.Size = new System.Drawing.Size(168, 20);
             this.port.TabIndex = 3;
@@ -79,7 +80,7 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // Form4
+            // AddServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,7 +93,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form4";
+            this.Name = "AddServer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Server";
             this.ResumeLayout(false);

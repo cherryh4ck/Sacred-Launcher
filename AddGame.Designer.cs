@@ -60,7 +60,9 @@
             // 
             // name
             // 
+            this.name.AccessibleName = "";
             this.name.Location = new System.Drawing.Point(12, 25);
+            this.name.MaxLength = 26;
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(407, 20);
             this.name.TabIndex = 2;
@@ -107,7 +109,7 @@
             this.description.Size = new System.Drawing.Size(404, 20);
             this.description.TabIndex = 7;
             // 
-            // Form2
+            // AddGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +125,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form2";
+            this.Name = "AddGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Game";
             this.ResumeLayout(false);

@@ -107,6 +107,7 @@ namespace Sacred_Launcher
                 }
                 catch (Exception)
                 {
+                    gameIcon.Image = Properties.Resources.unknown;
                     gameName.Text = "Invalid game";
                     gameDescription.Text = "Game couldn't be found.";
                     gamePath.Visible = false;
