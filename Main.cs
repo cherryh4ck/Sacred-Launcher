@@ -124,6 +124,7 @@ namespace Sacred_Launcher
                 gamePath.Visible = true;
                 playButton.Enabled = true;
                 deleteButton.Enabled = true;
+                modifyButton.Enabled = true;
             }
         }
 
@@ -156,6 +157,7 @@ namespace Sacred_Launcher
                     gamePath.Visible = false;
                     playButton.Enabled = false;
                     deleteButton.Enabled = false;
+                    modifyButton.Enabled = false;
 
                     saveData();
                 }

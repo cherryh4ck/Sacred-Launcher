@@ -38,6 +38,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.gameName = new System.Windows.Forms.Label();
             this.gamePath = new System.Windows.Forms.Label();
+            this.modifyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gameIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,11 +137,22 @@
             this.gamePath.Text = "path";
             this.gamePath.Visible = false;
             // 
+            // modifyButton
+            // 
+            this.modifyButton.Enabled = false;
+            this.modifyButton.Location = new System.Drawing.Point(500, 56);
+            this.modifyButton.Name = "modifyButton";
+            this.modifyButton.Size = new System.Drawing.Size(20, 20);
+            this.modifyButton.TabIndex = 10;
+            this.modifyButton.Text = "?";
+            this.modifyButton.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 228);
+            this.Controls.Add(this.modifyButton);
             this.Controls.Add(this.gamePath);
             this.Controls.Add(this.gameName);
             this.Controls.Add(this.button3);
@@ -174,6 +186,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label gameName;
         private System.Windows.Forms.Label gamePath;
+        private System.Windows.Forms.Button modifyButton;
     }
 }
 
