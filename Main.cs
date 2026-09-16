@@ -49,14 +49,7 @@ namespace Sacred_Launcher
 
         private void BrowseItem_Click(object sender, EventArgs e)
         {
-            if (gamesList.SelectedItem is Game game)
-            {
-                try
-                {
-                    Process.Start("explorer", Path.GetDirectoryName(game.Path));
-                }
-                catch { }
-            }
+            openDirectory();
         }
 
         private void ModifySettings_Click(object sender, EventArgs e)
@@ -199,6 +192,18 @@ namespace Sacred_Launcher
             }
         }
 
+        private void openDirectory()
+        {
+            if (gamesList.SelectedItem is Game game)
+            {
+                try
+                {
+                    Process.Start("explorer", Path.GetDirectoryName(game.Path));
+                }
+                catch { }
+            }
+        }
+
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (gamesList.SelectedItem is Game game)
@@ -250,6 +255,23 @@ namespace Sacred_Launcher
                 gamesList.SelectedIndex = index;
                 browseItem.Show(gamesList, e.Location);
             }
+        }
+
+        private void gamePath_MouseEnter(object sender, EventArgs e)
+        {
+            gamePath.ForeColor = Color.Salmon;
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void gamePath_MouseLeave(object sender, EventArgs e)
+        {
+            gamePath.ForeColor = Color.Black;
+            this.Cursor = Cursors.Default;
+        }
+
+        private void gamePath_Click(object sender, EventArgs e)
+        {
+            openDirectory();
         }
     }
 }

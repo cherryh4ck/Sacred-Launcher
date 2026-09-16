@@ -137,6 +137,9 @@
             this.gamePath.TabIndex = 9;
             this.gamePath.Text = "path";
             this.gamePath.Visible = false;
+            this.gamePath.Click += new System.EventHandler(this.gamePath_Click);
+            this.gamePath.MouseEnter += new System.EventHandler(this.gamePath_MouseEnter);
+            this.gamePath.MouseLeave += new System.EventHandler(this.gamePath_MouseLeave);
             // 
             // modifyButton
             // 
