@@ -126,7 +126,7 @@
             // 
             // timer
             // 
-            this.timer.Interval = 800;
+            this.timer.Interval = 400;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // AddGame
