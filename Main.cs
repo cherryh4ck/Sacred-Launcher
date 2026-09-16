@@ -49,12 +49,28 @@ namespace Sacred_Launcher
 
         private void BrowseItem_Click(object sender, EventArgs e)
         {
-            
+            if (gamesList.SelectedItem is Game game)
+            {
+                try
+                {
+                    Process.Start("explorer", Path.GetDirectoryName(game.Path));
+                }
+                catch { }
+            }
         }
 
         private void ModifySettings_Click(object sender, EventArgs e)
         {
-            
+            if (gamesList.SelectedItem is Game game)
+            {
+                try
+                {
+                    Process.Start(Path.Combine(Path.GetDirectoryName(game.Path), "settings.cfg"));
+                }
+                catch {
+                    MessageBox.Show("No settings.cfg file was found. Are you sure this is a valid installation?", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void saveData()
