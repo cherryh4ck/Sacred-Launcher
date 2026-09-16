@@ -44,7 +44,7 @@ namespace Sacred_Launcher
 
         private void Execute_Click(object sender, EventArgs e)
         {
-
+            executeGame();
         }
 
         private void BrowseItem_Click(object sender, EventArgs e)
@@ -161,6 +161,11 @@ namespace Sacred_Launcher
 
         private void button1_Click(object sender, EventArgs e)
         {
+            executeGame();
+        }
+
+        private void executeGame()
+        {
             if (gamesList.SelectedItem is Game game)
             {
                 var info = new ProcessStartInfo
@@ -207,21 +212,7 @@ namespace Sacred_Launcher
 
         private void gamesList_DoubleClick(object sender, EventArgs e)
         {
-            if (gamesList.SelectedItem is Game game)
-            {
-                var info = new ProcessStartInfo
-                {
-                    FileName = game.Path,
-                    WorkingDirectory = Path.GetDirectoryName(game.Path),
-                    UseShellExecute = true
-                };
-
-                try
-                {
-                    Process.Start(info);
-                }
-                catch { }
-            }
+            executeGame();
         }
 
         private void modifyButton_Click(object sender, EventArgs e)
