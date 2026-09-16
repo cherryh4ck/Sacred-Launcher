@@ -56,7 +56,7 @@ namespace Sacred_Launcher
         private void acceptButton_Click(object sender, EventArgs e)
         {
             var descriptionText = description.Text;
-            var gameServerText = gameServer.Text;
+            var gameServerText = gameServer.Text.Trim();
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(path.Text))
             {
                 MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
