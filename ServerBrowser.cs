@@ -17,10 +17,6 @@ namespace Sacred_Launcher
 {
     public partial class ServerBrowser : Form
     {
-        // solo eso por ahora ejkfkjwsfkjsd
-        // ynoseqe mas podria ir qwp
-        // bueno solotengo paja je
-
         static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "servers.json");
         public class Server
         {
