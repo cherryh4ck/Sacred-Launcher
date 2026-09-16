@@ -31,9 +31,30 @@ namespace Sacred_Launcher
             public override string ToString() => Name;
         }
 
+        private ContextMenuStrip browseItem;
         private void Form1_Load(object sender, EventArgs e)
         {
             loadData();
+
+            browseItem = new ContextMenuStrip();
+            browseItem.Items.Add("Execute", null, Execute_Click);
+            browseItem.Items.Add("Browse local files", null, BrowseItem_Click);
+            browseItem.Items.Add("Modify settings", null, ModifySettings_Click);
+        }
+
+        private void Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BrowseItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ModifySettings_Click(object sender, EventArgs e)
+        {
+            
         }
 
         public void saveData()
@@ -209,6 +230,18 @@ namespace Sacred_Launcher
             {
                 AddGame form = new AddGame(this, "MODIFY", game);
                 form.ShowDialog();
+            }
+        }
+
+        private void gamesList_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) return;
+
+            int index = gamesList.IndexFromPoint(e.Location);
+            if (index != ListBox.NoMatches)
+            {
+                gamesList.SelectedIndex = index;
+                browseItem.Show(gamesList, e.Location);
             }
         }
     }

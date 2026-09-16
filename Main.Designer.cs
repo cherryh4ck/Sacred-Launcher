@@ -51,6 +51,7 @@
             this.gamesList.TabIndex = 0;
             this.gamesList.SelectedIndexChanged += new System.EventHandler(this.gamesList_SelectedIndexChanged);
             this.gamesList.DoubleClick += new System.EventHandler(this.gamesList_DoubleClick);
+            this.gamesList.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gamesList_MouseUp);
             // 
             // addButton
             // 
