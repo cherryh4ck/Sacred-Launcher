@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.gamesList = new System.Windows.Forms.ListBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.gameName = new System.Windows.Forms.Label();
             this.gamePath = new System.Windows.Forms.Label();
             this.modifyButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gameIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,11 +57,14 @@
             // 
             // addButton
             // 
+            this.addButton.AccessibleDescription = "gagsg";
+            this.addButton.AccessibleName = "";
             this.addButton.Location = new System.Drawing.Point(500, 12);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(20, 20);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "+";
+            this.toolTip1.SetToolTip(this.addButton, "Add new game");
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
@@ -93,6 +98,7 @@
             this.playButton.Size = new System.Drawing.Size(75, 23);
             this.playButton.TabIndex = 5;
             this.playButton.Text = "Play";
+            this.toolTip1.SetToolTip(this.playButton, "Execute the game");
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -104,6 +110,7 @@
             this.deleteButton.Size = new System.Drawing.Size(20, 20);
             this.deleteButton.TabIndex = 6;
             this.deleteButton.Text = "-";
+            this.toolTip1.SetToolTip(this.deleteButton, "Remove game");
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -114,6 +121,7 @@
             this.button3.Size = new System.Drawing.Size(102, 23);
             this.button3.TabIndex = 7;
             this.button3.Text = "Server Browser";
+            this.toolTip1.SetToolTip(this.button3, "Explore a list of lobbyservers");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -149,6 +157,7 @@
             this.modifyButton.Size = new System.Drawing.Size(20, 20);
             this.modifyButton.TabIndex = 10;
             this.modifyButton.Text = "?";
+            this.toolTip1.SetToolTip(this.modifyButton, "Modify game");
             this.modifyButton.UseVisualStyleBackColor = true;
             this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
@@ -192,6 +201,7 @@
         private System.Windows.Forms.Label gameName;
         private System.Windows.Forms.Label gamePath;
         private System.Windows.Forms.Button modifyButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
