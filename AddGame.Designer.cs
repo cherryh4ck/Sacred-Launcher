@@ -40,12 +40,15 @@
             this.description = new System.Windows.Forms.TextBox();
             this.status = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.gameServer = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // acceptButton
             // 
             this.acceptButton.Enabled = false;
-            this.acceptButton.Location = new System.Drawing.Point(170, 171);
+            this.acceptButton.Location = new System.Drawing.Point(170, 217);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(90, 23);
             this.acceptButton.TabIndex = 0;
@@ -101,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 106);
+            this.label3.Location = new System.Drawing.Point(12, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 6;
@@ -109,7 +112,7 @@
             // 
             // description
             // 
-            this.description.Location = new System.Drawing.Point(12, 122);
+            this.description.Location = new System.Drawing.Point(12, 169);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(404, 20);
             this.description.TabIndex = 7;
@@ -117,7 +120,7 @@
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Location = new System.Drawing.Point(12, 155);
+            this.status.Location = new System.Drawing.Point(12, 201);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(35, 13);
             this.status.TabIndex = 8;
@@ -129,11 +132,32 @@
             this.timer.Interval = 400;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // gameServer
+            // 
+            this.gameServer.Location = new System.Drawing.Point(12, 121);
+            this.gameServer.Name = "gameServer";
+            this.gameServer.Size = new System.Drawing.Size(404, 20);
+            this.gameServer.TabIndex = 10;
+            this.gameServer.Text = "GameServer.exe";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Gameserver Name (?)";
+            this.toolTip1.SetToolTip(this.label4, "Some mods like SacredNL use a custom gameserver, in that case put the name of the" +
+        " binary file.");
+            // 
             // AddGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 206);
+            this.ClientSize = new System.Drawing.Size(431, 249);
+            this.Controls.Add(this.gameServer);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.status);
             this.Controls.Add(this.description);
             this.Controls.Add(this.label3);
@@ -167,5 +191,8 @@
         private System.Windows.Forms.TextBox description;
         private System.Windows.Forms.Label status;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TextBox gameServer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

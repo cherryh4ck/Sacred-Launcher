@@ -28,6 +28,14 @@ namespace Sacred_Launcher
                 name.Text = game.Name;
                 description.Text = game.Description;
                 path.Text = game.Path;
+                if (game.GameServerPath == "default" || game.GameServerPath == null)
+                {
+                    gameServer.Text = "GameServer.exe";
+                }
+                else
+                {
+                    gameServer.Text = game.GameServerPath;
+                }
             }
         }
 
@@ -48,6 +56,7 @@ namespace Sacred_Launcher
         private void acceptButton_Click(object sender, EventArgs e)
         {
             var descriptionText = description.Text;
+            var gameServerText = gameServer.Text;
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(path.Text))
             {
                 MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -59,11 +68,17 @@ namespace Sacred_Launcher
                 descriptionText = "No description available.";
             }
 
+            if (string.IsNullOrEmpty(gameServerText))
+            {
+                gameServerText = "default";
+            }
+
             if (game != null)
             {
                 game.Name = name.Text;
                 game.Path = path.Text;
                 game.Description = descriptionText;
+                game.GameServerPath = gameServerText;
                 form.updateGame(game);
             }
             else
@@ -72,7 +87,8 @@ namespace Sacred_Launcher
                 {
                     Name = name.Text,
                     Path = path.Text,
-                    Description = descriptionText
+                    Description = descriptionText,
+                    GameServerPath = gameServerText
                 };
                 form.addGame(newGame);
             }

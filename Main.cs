@@ -28,6 +28,9 @@ namespace Sacred_Launcher
             public string Description { get; set; }
             public string Path { get; set; }
 
+            [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+            public string GameServerPath { get; set; } = "default";
+
             public override string ToString() => Name;
         }
 
@@ -37,7 +40,8 @@ namespace Sacred_Launcher
             loadData();
 
             browseItem = new ContextMenuStrip();
-            browseItem.Items.Add("Execute", null, Execute_Click);
+            browseItem.Items.Add("Execute game", null, Execute_Click);
+            browseItem.Items.Add("Execute server", null, ExecuteServer_Click);
             browseItem.Items.Add("Browse local files", null, BrowseItem_Click);
             browseItem.Items.Add("Modify settings", null, ModifySettings_Click);
         }
@@ -45,6 +49,37 @@ namespace Sacred_Launcher
         private void Execute_Click(object sender, EventArgs e)
         {
             executeGame();
+        }
+
+        private void ExecuteServer_Click(object sender, EventArgs e)
+        {
+            if (gamesList.SelectedItem is Game game)
+            {
+                String serverPath;
+                if (game.GameServerPath == "default" || game.GameServerPath == null)
+                {
+                    serverPath = "GameServer.exe";
+                }
+                else
+                {
+                    serverPath = game.GameServerPath;
+                }
+
+                var info = new ProcessStartInfo
+                {
+                    FileName = Path.Combine(Path.GetDirectoryName(game.Path), serverPath),
+                    WorkingDirectory = Path.GetDirectoryName(game.Path),
+                    UseShellExecute = true
+                };
+                try
+                {
+                    Process.Start(info);
+                }
+                catch
+                {
+                    MessageBox.Show("No gameserver binary was found. (" + game.GameServerPath + ")", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void BrowseItem_Click(object sender, EventArgs e)
@@ -73,6 +108,10 @@ namespace Sacred_Launcher
             {
                 if (item is Game game)
                 {
+                    if (game.GameServerPath == "default")
+                    {
+                        game.GameServerPath = null;
+                    }
                     games.Add(game);
                 }
             }
