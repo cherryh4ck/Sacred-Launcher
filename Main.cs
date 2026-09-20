@@ -31,6 +31,9 @@ namespace Sacred_Launcher
             [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
             public string GameServerPath { get; set; } = "default";
 
+            [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+            public string SettingPath { get; set; } = "default";
+
             public override string ToString() => Name;
         }
 
@@ -91,12 +94,22 @@ namespace Sacred_Launcher
         {
             if (gamesList.SelectedItem is Game game)
             {
+                String settingPath;
+                if (game.SettingPath == "default" || game.SettingPath == null)
+                {
+                    settingPath = "Settings.cfg";
+                }
+                else
+                {
+                    settingPath = game.SettingPath;
+                }
+
                 try
                 {
-                    Process.Start(Path.Combine(Path.GetDirectoryName(game.Path), "settings.cfg"));
+                    Process.Start(Path.Combine(Path.GetDirectoryName(game.Path), settingPath));
                 }
                 catch {
-                    MessageBox.Show("No settings.cfg file was found. Are you sure this is a valid installation?", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No settings file was found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -111,6 +124,10 @@ namespace Sacred_Launcher
                     if (game.GameServerPath == "default")
                     {
                         game.GameServerPath = null;
+                    }
+                    if (game.SettingPath == "default")
+                    {
+                        game.SettingPath = null;
                     }
                     games.Add(game);
                 }

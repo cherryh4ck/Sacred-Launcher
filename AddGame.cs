@@ -28,6 +28,7 @@ namespace Sacred_Launcher
                 name.Text = game.Name;
                 description.Text = game.Description;
                 path.Text = game.Path;
+                settings.Text = game.SettingPath;
                 if (game.GameServerPath == "default" || game.GameServerPath == null)
                 {
                     gameServer.Text = "GameServer.exe";
@@ -35,6 +36,14 @@ namespace Sacred_Launcher
                 else
                 {
                     gameServer.Text = game.GameServerPath;
+                }
+                if (game.SettingPath == "default" || game.SettingPath == null)
+                {
+                    settings.Text = "Settings.cfg";
+                }
+                else
+                {
+                    settings.Text = game.SettingPath;
                 }
             }
         }
@@ -57,6 +66,7 @@ namespace Sacred_Launcher
         {
             var descriptionText = description.Text;
             var gameServerText = gameServer.Text.Trim();
+            var settingsText = settings.Text.Trim();
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(path.Text))
             {
                 MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -73,12 +83,18 @@ namespace Sacred_Launcher
                 gameServerText = "default";
             }
 
+            if (string.IsNullOrEmpty(settingsText))
+            {
+                settingsText = "default";
+            }
+
             if (game != null)
             {
                 game.Name = name.Text;
                 game.Path = path.Text;
                 game.Description = descriptionText;
                 game.GameServerPath = gameServerText;
+                game.SettingPath = settingsText;
                 form.updateGame(game);
             }
             else
@@ -88,7 +104,8 @@ namespace Sacred_Launcher
                     Name = name.Text,
                     Path = path.Text,
                     Description = descriptionText,
-                    GameServerPath = gameServerText
+                    GameServerPath = gameServerText,
+                    SettingPath = settingsText
                 };
                 form.addGame(newGame);
             }

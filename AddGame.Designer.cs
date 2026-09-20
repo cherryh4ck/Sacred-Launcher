@@ -43,12 +43,14 @@
             this.gameServer = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.settings = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // acceptButton
             // 
             this.acceptButton.Enabled = false;
-            this.acceptButton.Location = new System.Drawing.Point(170, 217);
+            this.acceptButton.Location = new System.Drawing.Point(168, 258);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(90, 23);
             this.acceptButton.TabIndex = 0;
@@ -104,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 153);
+            this.label3.Location = new System.Drawing.Point(12, 201);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 6;
@@ -112,7 +114,7 @@
             // 
             // description
             // 
-            this.description.Location = new System.Drawing.Point(12, 169);
+            this.description.Location = new System.Drawing.Point(12, 217);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(404, 20);
             this.description.TabIndex = 7;
@@ -120,7 +122,7 @@
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Location = new System.Drawing.Point(12, 201);
+            this.status.Location = new System.Drawing.Point(12, 249);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(35, 13);
             this.status.TabIndex = 8;
@@ -145,17 +147,37 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.Size = new System.Drawing.Size(129, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Gameserver Name (?)";
+            this.label4.Text = "Gameserver File Name (?)";
             this.toolTip1.SetToolTip(this.label4, "Some mods like SacredNL use a custom gameserver, in that case put the name of the" +
         " binary file.");
+            // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(12, 169);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(404, 20);
+            this.settings.TabIndex = 12;
+            this.settings.Text = "Settings.cfg";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Settings File Name (?)";
+            this.toolTip1.SetToolTip(this.label5, "Same as before, some mods use custom a custom setting file.");
             // 
             // AddGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 249);
+            this.ClientSize = new System.Drawing.Size(431, 293);
+            this.Controls.Add(this.settings);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.gameServer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.status);
@@ -194,5 +216,7 @@
         private System.Windows.Forms.TextBox gameServer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox settings;
+        private System.Windows.Forms.Label label5;
     }
 }
