@@ -168,6 +168,9 @@ namespace Sacred_Launcher
 
             loadData();
             ScanIPs();
+
+            ping.Stop();
+            ping.Start();
         }
 
         private void serverList_MouseUp(object sender, MouseEventArgs e)
@@ -205,6 +208,14 @@ namespace Sacred_Launcher
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
             saveData();
+            ping.Stop();
+        }
+
+        private void ping_Tick(object sender, EventArgs e)
+        {
+            ping.Stop();
+            ScanIPs();
+            ping.Start();
         }
     }
 }

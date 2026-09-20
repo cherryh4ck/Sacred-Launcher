@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerBrowser));
             this.serverList = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
+            this.ping = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // serverList
@@ -51,6 +53,11 @@
             this.label1.Size = new System.Drawing.Size(162, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Right click to interact with the list";
+            // 
+            // ping
+            // 
+            this.ping.Interval = 800;
+            this.ping.Tick += new System.EventHandler(this.ping_Tick);
             // 
             // ServerBrowser
             // 
@@ -76,5 +83,6 @@
         #endregion
         private System.Windows.Forms.ListView serverList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer ping;
     }
 }
