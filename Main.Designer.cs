@@ -110,6 +110,7 @@
             this.gamePath.AutoEllipsis = true;
             resources.ApplyResources(this.gamePath, "gamePath");
             this.gamePath.Name = "gamePath";
+            this.toolTip1.SetToolTip(this.gamePath, resources.GetString("gamePath.ToolTip"));
             this.gamePath.Click += new System.EventHandler(this.gamePath_Click);
             this.gamePath.MouseEnter += new System.EventHandler(this.gamePath_MouseEnter);
             this.gamePath.MouseLeave += new System.EventHandler(this.gamePath_MouseLeave);
