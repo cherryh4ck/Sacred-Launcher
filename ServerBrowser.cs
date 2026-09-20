@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -19,14 +20,18 @@ namespace Sacred_Launcher
     {
         static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "servers.json");
         static readonly byte[] logoffPacket = BuildLogoffPacket();
+
         public class Server
         {
             public string IP { get; set; }
             public int Port { get; set; } = 7066;
             [JsonIgnore]
             public bool Status { get; set; }
+            [JsonIgnore]
+            public long Ping { get; set; } = -1;
             public override string ToString() => IP;
         }
+
         public ServerBrowser()
         {
             InitializeComponent();
@@ -40,30 +45,32 @@ namespace Sacred_Launcher
             return data;
         }
 
-        static bool CheckServer(Server server)
+        static long CheckServer(Server server)
         {
             // no, no es CÓDIGO ORIGINAL ok
             using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
             {
                 try
                 {
+                    var stopwatch = Stopwatch.StartNew();
                     var result = socket.BeginConnect(server.IP, server.Port, null, null);
                     var connected = result.AsyncWaitHandle.WaitOne(2000, true);
+                    stopwatch.Stop();
 
                     if (!connected || !socket.Connected)
                     {
                         socket.Close();
-                        return false;
+                        return -1;
                     }
 
                     socket.EndConnect(result);
                     socket.LingerState = new LingerOption(true, 1);
                     socket.Send(logoffPacket);
-                    return true;
+                    return stopwatch.ElapsedMilliseconds;
                 }
                 catch
                 {
-                    return false;
+                    return -1;
                 }
             }
         }
@@ -73,10 +80,12 @@ namespace Sacred_Launcher
             foreach (ListViewItem item in serverList.Items)
             {
                 var server = (Server)item.Tag;
-                var online = await Task.Run(() => CheckServer(server));
+                var ping = await Task.Run(() => CheckServer(server));
 
-                server.Status = online;
-                item.SubItems[2].Text = online ? "Online" : "Offline";
+                server.Status = ping >= 0;
+                server.Ping = ping;
+                item.SubItems[2].Text = server.Status ? "Online" : "Offline";
+                item.SubItems[3].Text = server.Status ? $"{ping} ms" : "-";
             }
         }
 
@@ -85,6 +94,7 @@ namespace Sacred_Launcher
             var item = new ListViewItem(server.IP);
             item.SubItems.Add(server.Port.ToString());
             item.SubItems.Add(server.Status ? "Online" : "Offline");
+            item.SubItems.Add(server.Ping >= 0 ? $"{server.Ping} ms" : "-");
             item.Tag = server;
             serverList.Items.Add(item);
         }
@@ -147,6 +157,7 @@ namespace Sacred_Launcher
             serverList.Columns.Add("IP", 160);
             serverList.Columns.Add("Port", 40);
             serverList.Columns.Add("Status", 80);
+            serverList.Columns.Add("Ping", 60);
             serverList.FullRowSelect = true;
 
             menuItem = new ContextMenuStrip();
