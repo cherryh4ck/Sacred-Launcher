@@ -17,6 +17,7 @@ namespace Sacred_Launcher
     public partial class Main : Form
     {
         static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
+        static bool canExecute = true;
         public Main()
         {
             InitializeComponent();
@@ -231,8 +232,11 @@ namespace Sacred_Launcher
 
         private void executeGame()
         {
-            if (gamesList.SelectedItem is Game game)
+            if (gamesList.SelectedItem is Game game && canExecute)
             {
+                canExecute = false;
+                executeCooldown.Stop();
+                executeCooldown.Start();
                 var info = new ProcessStartInfo
                 {
                     FileName = game.Path,
@@ -328,6 +332,12 @@ namespace Sacred_Launcher
         private void gamePath_Click(object sender, EventArgs e)
         {
             openDirectory();
+        }
+
+        private void executeCooldown_Tick(object sender, EventArgs e)
+        {
+            executeCooldown.Stop();
+            canExecute = true;
         }
     }
 }

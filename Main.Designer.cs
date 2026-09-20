@@ -41,6 +41,7 @@
             this.gamePath = new System.Windows.Forms.Label();
             this.modifyButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.executeCooldown = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gameIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +122,11 @@
             this.modifyButton.UseVisualStyleBackColor = true;
             this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
+            // executeCooldown
+            // 
+            this.executeCooldown.Interval = 1000;
+            this.executeCooldown.Tick += new System.EventHandler(this.executeCooldown_Tick);
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -158,6 +164,7 @@
         private System.Windows.Forms.Label gamePath;
         private System.Windows.Forms.Button modifyButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Timer executeCooldown;
     }
 }
 
