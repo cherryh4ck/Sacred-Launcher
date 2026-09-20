@@ -43,8 +43,8 @@
             this.gameServer = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.settings = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.settings = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // acceptButton
@@ -153,14 +153,6 @@
             this.toolTip1.SetToolTip(this.label4, "Some mods like SacredNL use a custom gameserver, in that case put the name of the" +
         " binary file.");
             // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(12, 169);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(404, 20);
-            this.settings.TabIndex = 12;
-            this.settings.Text = "Settings.cfg";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -170,6 +162,14 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Settings File Name (?)";
             this.toolTip1.SetToolTip(this.label5, "Same as before, some mods use custom a custom setting file.");
+            // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(12, 169);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(404, 20);
+            this.settings.TabIndex = 12;
+            this.settings.Text = "Settings.cfg";
             // 
             // AddGame
             // 
@@ -192,6 +192,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Game";

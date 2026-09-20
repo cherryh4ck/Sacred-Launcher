@@ -47,125 +47,84 @@
             // gamesList
             // 
             this.gamesList.FormattingEnabled = true;
-            this.gamesList.Location = new System.Drawing.Point(120, 12);
+            resources.ApplyResources(this.gamesList, "gamesList");
             this.gamesList.Name = "gamesList";
-            this.gamesList.Size = new System.Drawing.Size(379, 173);
-            this.gamesList.TabIndex = 0;
             this.gamesList.SelectedIndexChanged += new System.EventHandler(this.gamesList_SelectedIndexChanged);
             this.gamesList.DoubleClick += new System.EventHandler(this.gamesList_DoubleClick);
             this.gamesList.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gamesList_MouseUp);
             // 
             // addButton
             // 
-            this.addButton.AccessibleDescription = "gagsg";
-            this.addButton.AccessibleName = "";
-            this.addButton.Location = new System.Drawing.Point(500, 12);
+            resources.ApplyResources(this.addButton, "addButton");
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(20, 20);
-            this.addButton.TabIndex = 1;
-            this.addButton.Text = "+";
-            this.toolTip1.SetToolTip(this.addButton, "Add new game");
+            this.toolTip1.SetToolTip(this.addButton, resources.GetString("addButton.ToolTip"));
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // gameDescription
             // 
-            this.gameDescription.Enabled = false;
-            this.gameDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameDescription.Location = new System.Drawing.Point(12, 48);
-            this.gameDescription.Multiline = true;
+            resources.ApplyResources(this.gameDescription, "gameDescription");
             this.gameDescription.Name = "gameDescription";
             this.gameDescription.ReadOnly = true;
-            this.gameDescription.Size = new System.Drawing.Size(100, 137);
-            this.gameDescription.TabIndex = 3;
             // 
             // gameIcon
             // 
             this.gameIcon.Image = global::Sacred_Launcher.Properties.Resources.unknown;
-            this.gameIcon.InitialImage = ((System.Drawing.Image)(resources.GetObject("gameIcon.InitialImage")));
-            this.gameIcon.Location = new System.Drawing.Point(12, 24);
+            resources.ApplyResources(this.gameIcon, "gameIcon");
             this.gameIcon.Name = "gameIcon";
-            this.gameIcon.Size = new System.Drawing.Size(20, 20);
-            this.gameIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gameIcon.TabIndex = 4;
             this.gameIcon.TabStop = false;
             // 
             // playButton
             // 
-            this.playButton.Enabled = false;
-            this.playButton.Location = new System.Drawing.Point(424, 191);
+            resources.ApplyResources(this.playButton, "playButton");
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(75, 23);
-            this.playButton.TabIndex = 5;
-            this.playButton.Text = "Play";
-            this.toolTip1.SetToolTip(this.playButton, "Execute the game");
+            this.toolTip1.SetToolTip(this.playButton, resources.GetString("playButton.ToolTip"));
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.Enabled = false;
-            this.deleteButton.Location = new System.Drawing.Point(500, 34);
+            resources.ApplyResources(this.deleteButton, "deleteButton");
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(20, 20);
-            this.deleteButton.TabIndex = 6;
-            this.deleteButton.Text = "-";
-            this.toolTip1.SetToolTip(this.deleteButton, "Remove game");
+            this.toolTip1.SetToolTip(this.deleteButton, resources.GetString("deleteButton.ToolTip"));
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(316, 191);
+            resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Server Browser";
-            this.toolTip1.SetToolTip(this.button3, "Explore a list of lobbyservers");
+            this.toolTip1.SetToolTip(this.button3, resources.GetString("button3.ToolTip"));
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // gameName
             // 
             this.gameName.AutoEllipsis = true;
-            this.gameName.Location = new System.Drawing.Point(35, 12);
+            resources.ApplyResources(this.gameName, "gameName");
             this.gameName.Name = "gameName";
-            this.gameName.Size = new System.Drawing.Size(77, 33);
-            this.gameName.TabIndex = 8;
-            this.gameName.Text = "No game selected";
-            this.gameName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // gamePath
             // 
             this.gamePath.AutoEllipsis = true;
-            this.gamePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gamePath.Location = new System.Drawing.Point(12, 191);
+            resources.ApplyResources(this.gamePath, "gamePath");
             this.gamePath.Name = "gamePath";
-            this.gamePath.Size = new System.Drawing.Size(284, 31);
-            this.gamePath.TabIndex = 9;
-            this.gamePath.Text = "path";
-            this.gamePath.Visible = false;
             this.gamePath.Click += new System.EventHandler(this.gamePath_Click);
             this.gamePath.MouseEnter += new System.EventHandler(this.gamePath_MouseEnter);
             this.gamePath.MouseLeave += new System.EventHandler(this.gamePath_MouseLeave);
             // 
             // modifyButton
             // 
-            this.modifyButton.Enabled = false;
-            this.modifyButton.Location = new System.Drawing.Point(500, 56);
+            resources.ApplyResources(this.modifyButton, "modifyButton");
             this.modifyButton.Name = "modifyButton";
-            this.modifyButton.Size = new System.Drawing.Size(20, 20);
-            this.modifyButton.TabIndex = 10;
-            this.modifyButton.Text = "?";
-            this.toolTip1.SetToolTip(this.modifyButton, "Modify game");
+            this.toolTip1.SetToolTip(this.modifyButton, resources.GetString("modifyButton.ToolTip"));
             this.modifyButton.UseVisualStyleBackColor = true;
             this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 228);
             this.Controls.Add(this.modifyButton);
             this.Controls.Add(this.gamePath);
             this.Controls.Add(this.gameName);
@@ -177,11 +136,8 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.gamesList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sacred Launcher";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gameIcon)).EndInit();
             this.ResumeLayout(false);
