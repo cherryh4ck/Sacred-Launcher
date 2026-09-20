@@ -18,6 +18,7 @@ namespace Sacred_Launcher
     public partial class ServerBrowser : Form
     {
         static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "servers.json");
+        static readonly byte[] logoffPacket = BuildLogoffPacket();
         public class Server
         {
             public string IP { get; set; }
@@ -31,22 +32,48 @@ namespace Sacred_Launcher
             InitializeComponent();
         }
 
+        static byte[] BuildLogoffPacket()
+        {
+            var data = new byte[28];
+            BitConverter.GetBytes(0xDABAFBEFu).CopyTo(data, 0);
+            BitConverter.GetBytes((uint)4).CopyTo(data, 12);
+            return data;
+        }
+
+        static bool CheckServer(Server server)
+        {
+            // no, no es CÓDIGO ORIGINAL ok
+            using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+            {
+                try
+                {
+                    var result = socket.BeginConnect(server.IP, server.Port, null, null);
+                    var connected = result.AsyncWaitHandle.WaitOne(2000, true);
+
+                    if (!connected || !socket.Connected)
+                    {
+                        socket.Close();
+                        return false;
+                    }
+
+                    socket.EndConnect(result);
+                    socket.LingerState = new LingerOption(true, 1);
+                    socket.Send(logoffPacket);
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         async public void ScanIPs()
         {
             foreach (ListViewItem item in serverList.Items)
             {
                 var server = (Server)item.Tag;
-                bool online = false;
-
-                using (var client = new TcpClient())
-                {
-                    try
-                    {
-                        var tarea = client.ConnectAsync(server.IP, server.Port);
-                        online = await Task.WhenAny(tarea, Task.Delay(2000)) == tarea && client.Connected;
-                    }
-                    catch { }
-                }
+                var online = await Task.Run(() => CheckServer(server));
 
                 server.Status = online;
                 item.SubItems[2].Text = online ? "Online" : "Offline";
