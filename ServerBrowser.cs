@@ -77,7 +77,7 @@ namespace Sacred_Launcher
 
         async public void ScanIPs()
         {
-            foreach (ListViewItem item in serverList.Items)
+            var tasks = serverList.Items.Cast<ListViewItem>().Select(async item =>
             {
                 var server = (Server)item.Tag;
                 var ping = await Task.Run(() => CheckServer(server));
@@ -86,7 +86,9 @@ namespace Sacred_Launcher
                 server.Ping = ping;
                 item.SubItems[2].Text = server.Status ? "Online" : "Offline";
                 item.SubItems[3].Text = server.Status ? $"{ping} ms" : "-";
-            }
+            });
+
+            await Task.WhenAll(tasks);
         }
 
         public void addServer(Server server)
@@ -213,6 +215,7 @@ namespace Sacred_Launcher
 
         private void ping_Tick(object sender, EventArgs e)
         {
+            if (WindowState == FormWindowState.Minimized) return;
             ping.Stop();
             ScanIPs();
             ping.Start();

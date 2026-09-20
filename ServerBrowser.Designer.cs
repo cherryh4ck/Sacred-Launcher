@@ -56,7 +56,7 @@
             // 
             // ping
             // 
-            this.ping.Interval = 800;
+            this.ping.Interval = 3000;
             this.ping.Tick += new System.EventHandler(this.ping_Tick);
             // 
             // ServerBrowser
