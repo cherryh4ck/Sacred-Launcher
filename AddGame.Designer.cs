@@ -161,7 +161,7 @@
             this.label5.Size = new System.Drawing.Size(110, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Settings File Name (?)";
-            this.toolTip1.SetToolTip(this.label5, "Same as before, some mods use custom a custom setting file.");
+            this.toolTip1.SetToolTip(this.label5, "Same as before, some mods use a custom setting file.");
             // 
             // settings
             // 
