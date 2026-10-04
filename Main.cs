@@ -16,6 +16,7 @@ namespace Sacred_Launcher
 {
     public partial class Main : Form
     {
+        static Process process = Process.GetCurrentProcess();
         static string dataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
         static bool canExecute = true;
         public Main()
@@ -41,6 +42,12 @@ namespace Sacred_Launcher
         private ContextMenuStrip browseItem;
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (process.ProcessName != "Sacred" && Properties.Settings.Default.WarningMessage == false)
+            {
+                MessageBox.Show("You haven't renamed the launcher to 'Sacred', which may lead to Steam not tracking your playtime at all.\nIgnore this message if you don't care about this.\n\nThis message won't be shown again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Properties.Settings.Default.WarningMessage = true;
+                Properties.Settings.Default.Save();
+            }
             loadData();
 
             browseItem = new ContextMenuStrip();
